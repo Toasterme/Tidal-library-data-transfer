@@ -7,9 +7,9 @@ import os
 session1 = tidalapi.Session()
 print('Enter your credentials for the account you want to transfer from')
 session1.login_oauth_simple()
-uid1 = session1.user.id
-TidalUser1 = tidalapi.Favorites(session1, uid1)
-playlists = TidalUser1.playlists()
+
+# Transfert all playlist, favorites or not regardless of the user
+playlists = session1.user.playlists()
 
 # Sortowanie playlist według daty dodania (od najnowszego do najstarszego)
 sorted_playlists = sorted(playlists, key=lambda x: x.last_updated, reverse=False)
